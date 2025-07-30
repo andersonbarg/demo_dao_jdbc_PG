@@ -39,6 +39,20 @@ public class Program {
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
 	
+		System.out.println("\n=== TEST5: Seller update ===");
+		seller = sellerDao.findById(1);
+		seller.setName("Martha Waine");
+		seller.setEmail("martha@hotmail.com");
+		seller.setBirthDate(sdf.parse("18/02/1978"));
+		seller.setBaseSalary(3520.0);
+		sellerDao.update(seller);
+		System.out.println("Update completed!");
+		System.out.println("===========================");
+		list = sellerDao.findAll();
+		for (Seller obj : list) {
+			System.out.println(obj);
+		}
+
 		/*
 		 * 
 		 * 
